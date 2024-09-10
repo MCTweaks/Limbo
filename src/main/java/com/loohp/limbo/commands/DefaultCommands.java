@@ -27,6 +27,9 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.md_5.bungee.api.ChatColor;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,6 +41,30 @@ public class DefaultCommands implements CommandExecutor, TabCompletor {
 		if (args.length == 0) {
 			return;
 		}
+
+
+		if (args[0].equalsIgnoreCase("connect")) {
+				if (sender instanceof Player) {
+					Player player = (Player) sender;
+
+					try {
+						ByteArrayOutputStream b = new ByteArrayOutputStream();
+						DataOutputStream out = new DataOutputStream(b);
+
+						out.writeUTF("Connect");
+						out.writeUTF(args[1]);
+
+						player.sendPluginMessage("BungeeCord", b.toByteArray());
+						b.close();
+						out.close();
+					} catch (IOException e) {
+						player.sendMessage("IOException");
+					}
+				}
+				sender.sendMessage(ChatColor.GRAY + "This server is running Limbo version " + Limbo.getInstance().LIMBO_IMPLEMENTATION_VERSION + " (MC: " + Limbo.getInstance().SERVER_IMPLEMENTATION_VERSION + ")");
+			return;
+		}
+
 
 		if (args[0].equalsIgnoreCase("version")) {
 			if (sender.hasPermission("limboserver.version")) {
@@ -189,6 +216,9 @@ public class DefaultCommands implements CommandExecutor, TabCompletor {
 		case 0:
 			if (sender.hasPermission("limboserver.spawn")) {
 				tab.add("spawn");
+			}
+			if (sender.hasPermission("limboserver.connect")) {
+				tab.add("connect");
 			}
 			if (sender.hasPermission("limboserver.kick")) {
 				tab.add("kick");

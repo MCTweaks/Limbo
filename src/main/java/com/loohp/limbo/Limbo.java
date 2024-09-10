@@ -97,32 +97,7 @@ public final class Limbo {
 	public static boolean noGui = false;
 	
 	public static void main(String args[]) throws IOException, ParseException, NumberFormatException, ClassNotFoundException, InterruptedException {
-		for (String flag : args) {
-			if (flag.equals("--nogui") || flag.equals("nogui")) {
-				noGui = true;
-			} else if (flag.equals("--help")) {
-				System.out.println("Accepted flags:");
-				System.out.println(" --nogui <- Disable the GUI");
-				System.exit(0);
-			} else {
-				System.out.println("Unknown flag: \"" + flag + "\". Ignoring...");
-			}
-		}
-		if (GraphicsEnvironment.isHeadless()) {
-			noGui = true;
-		}
-		if (!noGui) {
-			System.out.println("Launching Server GUI.. Add \"--nogui\" in launch arguments to disable");
-			Thread t1 = new Thread(() -> {
-				try {
-					GUI.main();
-				} catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-					e.printStackTrace();
-				}
-			});
-			t1.start();
-		}
-		
+		noGui = true;
 		new Limbo();
 	}
 	

@@ -24,7 +24,6 @@ import com.google.gson.GsonBuilder;
 import com.loohp.limbo.bossbar.KeyedBossBar;
 import com.loohp.limbo.commands.CommandSender;
 import com.loohp.limbo.commands.DefaultCommands;
-import com.loohp.limbo.consolegui.GUI;
 import com.loohp.limbo.events.EventsManager;
 import com.loohp.limbo.file.ServerProperties;
 import com.loohp.limbo.inventory.AnvilInventory;
@@ -143,15 +142,9 @@ public final class Limbo {
 		instance = this;
 		unsafe = new Unsafe(this);
 		isRunning = new AtomicBoolean(true);
-		
-		if (!noGui) {
-			while (!GUI.loadFinish) {
-				TimeUnit.MILLISECONDS.sleep(500);
-			}
-			console = new Console(null, System.out, System.err);
-		} else {
-			console = new Console(System.in, System.out, System.err);
-		}
+
+		console = new Console(System.in, System.out, System.err);
+
 				
 		LIMBO_IMPLEMENTATION_VERSION = getLimboVersion();
 		console.sendMessage("Loading Limbo Version " + LIMBO_IMPLEMENTATION_VERSION + " on Minecraft " + SERVER_IMPLEMENTATION_VERSION);

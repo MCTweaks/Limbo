@@ -20,7 +20,6 @@
 package com.loohp.limbo;
 
 import com.loohp.limbo.commands.CommandSender;
-import com.loohp.limbo.consolegui.ConsoleTextOutput;
 import com.loohp.limbo.utils.CustomStringUtils;
 import jline.console.ConsoleReader;
 import net.kyori.adventure.audience.MessageType;
@@ -240,7 +239,7 @@ public class Console implements CommandSender {
 	public void sendMessage(String message) {
 		stashLine();
 		String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-		ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + message), true);
+//		ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + message), true);
     	logs.println(ChatColor.stripColor("[" + date + " Info] " + message));
 		try {
 			reader.getOutput().append("[" + date + " Info] " + translateToConsole(message) + "\n");
@@ -332,7 +331,7 @@ public class Console implements CommandSender {
 		public PrintStream printf(Locale l, String format, Object... args) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format(l, "[" + date + " Info]" + format, args)));
+//			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format(l, "[" + date + " Info]" + format, args)));
 			logs.printf(l, ChatColor.stripColor("[" + date + " Info]" + format), args);
 			PrintStream stream = super.printf(l, Console.translateToConsole("[" + date + " Info]" + format), args);
 			console.unstashLine();
@@ -343,7 +342,7 @@ public class Console implements CommandSender {
 		public PrintStream printf(String format, Object... args) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format("[" + date + " Info]" + format, args)));
+//			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format("[" + date + " Info]" + format, args)));
 			logs.printf(ChatColor.stripColor("[" + date + " Info]" + format), args);
 			PrintStream stream = super.printf(ChatColor.stripColor("[" + date + " Info]" + format), args);
 			console.unstashLine();
@@ -354,7 +353,7 @@ public class Console implements CommandSender {
 		public void println() {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info]"), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info]"), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]"));
 	        super.println(ChatColor.stripColor("[" + date + " Info]"));
 	        console.unstashLine();
@@ -364,7 +363,7 @@ public class Console implements CommandSender {
 		public void println(boolean x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -374,7 +373,7 @@ public class Console implements CommandSender {
 		public void println(char x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -384,7 +383,7 @@ public class Console implements CommandSender {
 		public void println(char[] x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + String.valueOf(x)), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + String.valueOf(x)), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + String.valueOf(x)));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + String.valueOf(x)));
 	        console.unstashLine();
@@ -394,7 +393,7 @@ public class Console implements CommandSender {
 		public void println(double x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -404,7 +403,7 @@ public class Console implements CommandSender {
 		public void println(float x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -414,7 +413,7 @@ public class Console implements CommandSender {
 		public void println(int x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -424,7 +423,7 @@ public class Console implements CommandSender {
 		public void println(long x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -434,7 +433,7 @@ public class Console implements CommandSender {
 		public void println(Object x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        super.println(ChatColor.stripColor("[" + date + " Info]" + x));
 	        console.unstashLine();
@@ -444,7 +443,7 @@ public class Console implements CommandSender {
 	    public void println(String string) {
 	    	console.stashLine();
 	    	String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-	    	ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + string), true);
+//	    	ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Info] " + string), true);
 	    	logs.println(ChatColor.stripColor("[" + date + " Info] " + string));
 	        super.println(ChatColor.stripColor("[" + date + " Info] " + string));
 	        console.unstashLine();
@@ -467,7 +466,7 @@ public class Console implements CommandSender {
 		public PrintStream printf(Locale l, String format, Object... args) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format(l, "[" + date + " Error]" + format, args)));
+//			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format(l, "[" + date + " Error]" + format, args)));
 			logs.printf(l, ChatColor.stripColor("[" + date + " Error]" + format), args);
 			PrintStream stream = super.printf(l, ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + format + RESET_COLOR), args);
 			console.unstashLine();
@@ -479,7 +478,7 @@ public class Console implements CommandSender {
 		public PrintStream printf(String format, Object... args) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format("[" + date + " Error]" + format, args)));
+//			ConsoleTextOutput.appendText(ChatColor.stripColor(String.format("[" + date + " Error]" + format, args)));
 			logs.printf(ChatColor.stripColor("[" + date + " Error]" + format), args);
 			PrintStream stream = super.printf(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + format + RESET_COLOR), args);
 			console.unstashLine();
@@ -490,7 +489,7 @@ public class Console implements CommandSender {
 		public void println() {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error]"), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error]"), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]"));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]") + RESET_COLOR);
 	        console.unstashLine();
@@ -500,7 +499,7 @@ public class Console implements CommandSender {
 		public void println(boolean x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -510,7 +509,7 @@ public class Console implements CommandSender {
 		public void println(char x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -520,7 +519,7 @@ public class Console implements CommandSender {
 		public void println(char[] x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + String.valueOf(x)), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + String.valueOf(x)), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + String.valueOf(x)));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + String.valueOf(x)) + RESET_COLOR);
 	        console.unstashLine();
@@ -530,7 +529,7 @@ public class Console implements CommandSender {
 		public void println(double x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -540,7 +539,7 @@ public class Console implements CommandSender {
 		public void println(float x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -550,7 +549,7 @@ public class Console implements CommandSender {
 		public void println(int x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -560,7 +559,7 @@ public class Console implements CommandSender {
 		public void println(long x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -570,7 +569,7 @@ public class Console implements CommandSender {
 		public void println(Object x) {
 			console.stashLine();
 			String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
+//			ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + x), true);
 			logs.println(ChatColor.stripColor("[" + date + " Error]" + x));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error]" + x) + RESET_COLOR);
 	        console.unstashLine();
@@ -580,7 +579,7 @@ public class Console implements CommandSender {
 	    public void println(String string) {
 	    	console.stashLine();
 	    	String date = new SimpleDateFormat("HH':'mm':'ss").format(new Date());
-	    	ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + string), true);
+//	    	ConsoleTextOutput.appendText(ChatColor.stripColor("[" + date + " Error] " + string), true);
 	    	logs.println(ChatColor.stripColor("[" + date + " Error] " + string));
 	        super.println(ERROR_RED + ChatColor.stripColor("[" + date + " Error] " + string) + RESET_COLOR);
 	        console.unstashLine();

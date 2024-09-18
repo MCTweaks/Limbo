@@ -219,10 +219,10 @@ public final class Limbo {
 		
 		for (LimboPlugin plugin : Limbo.getInstance().getPluginManager().getPlugins()) {
 			try {
-				console.sendMessage("Enabling plugin " + plugin.getName() + " " + plugin.getInfo().getVersion());
+				console.sendMessage("Enabling plugin " + plugin.getName());
 				plugin.onEnable();
 			} catch (Throwable e) {
-				new RuntimeException("Error while enabling " + plugin.getName() + " " + plugin.getInfo().getVersion(), e).printStackTrace();
+				new RuntimeException("Error while enabling " + plugin.getName());
 			}
 		}
 		
@@ -430,10 +430,10 @@ public final class Limbo {
 		
 		for (LimboPlugin plugin : Limbo.getInstance().getPluginManager().getPlugins()) {
 			try {
-				console.sendMessage("Disabling plugin " + plugin.getName() + " " + plugin.getInfo().getVersion());
+				console.sendMessage("Disabling plugin " + plugin.getName());
 				plugin.onDisable();
 			} catch (Throwable e) {
-				new RuntimeException("Error while disabling " + plugin.getName() + " " + plugin.getInfo().getVersion(), e).printStackTrace();
+				new RuntimeException("Error while disabling " + plugin.getName());
 			}
 		}
 		

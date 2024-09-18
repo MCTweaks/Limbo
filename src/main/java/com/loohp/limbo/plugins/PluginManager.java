@@ -80,7 +80,7 @@ public class PluginManager {
 							plugin.setInfo(pluginYaml, file);
 							plugins.put(plugin.getName(), plugin);
 							plugin.onLoad();
-							Limbo.getInstance().getConsole().sendMessage("Loading plugin " + file.getName() + " " + plugin.getInfo().getVersion() + " by " + plugin.getInfo().getAuthor());
+							Limbo.getInstance().getConsole().sendMessage("Loading plugin " + file.getName());
 							break;
 						}
 					}
